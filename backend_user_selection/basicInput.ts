@@ -34,6 +34,12 @@ export async function SingleStepSearch() {
 			body: JSON.stringify([{'id':id, 'selection': result}]),
 			headers: {'accept': 'application/json', 'Content-Type': 'application/json'}
 		  }).then((confirm: any) => confirm.json());
+		const confirm = await fetch('https://userselection-app.', {
+			method: 'PUT', 
+			body: JSON.stringify([{'id':id, 'query': query, 'selection': result}]),
+			headers: {'accept': 'application/json', 'Content-Type': 'application/json'}
+		  }).then((confirm: any) => confirm.json());
+		
 		if (confirm[id].status==1){
 			window.showInformationMessage(`Finish uploading feedback. Thank you!`);
 		}else{
