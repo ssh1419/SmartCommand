@@ -29,18 +29,19 @@ export async function SingleStepSearch() {
 	const collection_flag = vscode.workspace.getConfiguration().get('conf.data.collection');
 	//const selection_id2 = response2.indexOf(result2);
 	if (typeof result == 'string' && collection_flag){
-		const confirm = await fetch('https://querycollection-app.icymeadow-3b7ab52d.centralus.azurecontainerapps.io/updatequery/', {
+		const confirm_collect = await fetch('https://querycollection-app.icymeadow-3b7ab52d.centralus.azurecontainerapps.io/updatequery/', {
 			method: 'PUT', 
 			body: JSON.stringify([{'id':id, 'selection': result}]),
 			headers: {'accept': 'application/json', 'Content-Type': 'application/json'}
-		  }).then((confirm: any) => confirm.json());
-		const confirm = await fetch('https://userselection-app.', {
+		  }).then((confirm_collect: any) => confirm_collect.json());
+		
+		const confirm_select = await fetch('https://userselection-app.icymeadow-2dcvd53d.centralus.azurecontainerapps.io/updatequery/', {
 			method: 'PUT', 
 			body: JSON.stringify([{'id':id, 'query': query, 'selection': result}]),
 			headers: {'accept': 'application/json', 'Content-Type': 'application/json'}
-		  }).then((confirm: any) => confirm.json());
+		  }).then((confirm_select: any) => confirm_select.json());
 		
-		if (confirm[id].status==1){
+		if (confirm_collect[id].status==1 && confirm_select[id].status==1){
 			window.showInformationMessage(`Finish uploading feedback. Thank you!`);
 		}else{
 			window.showInformationMessage(`The data collection failed. Please try again.`);
