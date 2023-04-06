@@ -2,7 +2,7 @@
 This Python script, `PlugInCommands.py`, exports all plug-in commands information for Visual Studio Code (VSCode) into a JSON file named `PlugInCommandsOutput.json`.
 
 ### *Description:*
-The script goes through the installed extensions in the user's `.vscode/extensions` folder, extracts command information from the `package.json` files of each extension. The result is a list of all available commands, including the source and version information.
+The script goes through the installed extensions in the user's `.vscode/extensions` folder, extracts command information from the `package.json` files of each extension folder. The result is a list of all available commands, including the source and version information.
 
 ### *Usage:*
 * Ensure you have Python 3.x installed on your system.
