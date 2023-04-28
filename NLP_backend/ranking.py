@@ -87,7 +87,7 @@ def combine_results(scores:dict[list], command_dict_list, k, p):
 
     for score in scores[:cutoff_index]:
         command_id = score['corpus_id']
-        command = command_dict_list[command_id]['command']
+        command = command_dict_list[command_id]
         results.append((command, score['score']))
     return results
 
@@ -118,7 +118,7 @@ if __name__ == "__main__":
     import sys, os
     query = sys.argv[1]   
     k, p = 20, 0.8
-    [k, p] = sys.argv[2:4]
+#     [k, p] = sys.argv[2:4]
     k, p = int(k), float(p)
 
     import config
