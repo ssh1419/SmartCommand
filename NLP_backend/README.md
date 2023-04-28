@@ -9,17 +9,17 @@ The ranking algorithm using  the embeddings of the command phrases and the embed
  
 
 ## Processing:
-* Load the JSON files from the specified URLs.
-* Encode the sentences using the SBERT method.
-* Generate embeddings for command titles and command IDs, depending on the JSON format.
+* Load the pickle files of the embeddings of commands and titles.
+* Encode the query using the SBERT method.
+* Measure the similarityies between the embedding of the query and commands.
+* Measure the similarityies between the embedding of the query and commands' titles.
+* 
+* Filter the result using a combination of top-k and top-p.
+* Return the top commands.
 
 
 ## Output:
-The generated embeddings are saved in separate pickle files, and the script also combines the embeddings from both JSON files into a single pickle file:
-
-* `PickleBuiltinCommands.pkl`
-* `PicklePluginCommands.pkl`
-* `CombinedPickleCommands.pkl`
+It will return top-k (20) commands based on their scores.
 
 ### When the query is `git clone`, the result is:
 ```
