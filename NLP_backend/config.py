@@ -1,6 +1,8 @@
 data_root = "./"
 method = "sbert"
-model = './pre_trained_models/all-MiniLM-L6-v2'
+# model = './pre_trained_models/all-MiniLM-L6-v2'
+model = 'sentence-transformers/paraphrase-distilroberta-base-v1'
+
 
 # If you change the model above, be sure to change accordingly in run_all.sh as well
 
