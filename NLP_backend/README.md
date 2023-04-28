@@ -21,7 +21,7 @@ The generated embeddings are saved in separate pickle files, and the script also
 * `PicklePluginCommands.pkl`
 * `CombinedPickleCommands.pkl`
 
-### `CombinedPickleCommands.pkl` file results:
+### When the query is `git clone`, the result is:
 ```
 git.clone                                0.745
 git.push                                 0.712
