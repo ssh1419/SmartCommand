@@ -29,13 +29,21 @@ def semantic_search_sbert(query:str, command_embeddings, title_embeddings, model
                                                       top_k=20000, # this k needs to be very big 
                                                       score_function=sentence_transformers.util.dot_score
                                                       )[0] # index 0 because we have only one query 
-
+    
+    # The order of scores are sorted by decreasing cosine similartiy scores automatically, so to compare the scores of commands and titles. It will be sorted by the corpus id
+    command_scores = (sorted(command_scores, key=lambda d: d['corpus_id']) )
+    title_scores = (sorted(title_scores, key=lambda d: d['corpus_id']) )
+    
+    
     max_scores = []
     for command_score, title_score in zip(command_scores, title_scores):
         corpus_id = command_score['corpus_id']
         max_score = max(command_score['score'], title_score['score'])
         max_scores.append({'corpus_id': corpus_id, 'score': max_score})
 
+    # Sort the score by decreasing cosine similrty scores again
+    max_scores = (sorted(max_scores, key=lambda d: d['score'], reverse=True) )
+        
     return max_scores
 
 # %% 
