@@ -1,5 +1,3 @@
-# given a query, find matching commands. 
-
 import pickle 
 import json
 import numpy 
@@ -30,7 +28,8 @@ def semantic_search_sbert(query:str, command_embeddings, title_embeddings, model
                                                       score_function=sentence_transformers.util.dot_score
                                                       )[0] # index 0 because we have only one query 
     
-    # The order of scores are sorted by decreasing cosine similartiy scores automatically, so to compare the scores of commands and titles. It will be sorted by the corpus id
+    # The order of scores are sorted by decreasing cosine similartiy scores automatically. 
+    # So to compare the scores of commands and titles. It will be sorted by the corpus id
     command_scores = (sorted(command_scores, key=lambda d: d['corpus_id']) )
     title_scores = (sorted(title_scores, key=lambda d: d['corpus_id']) )
     
