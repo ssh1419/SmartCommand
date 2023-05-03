@@ -4,9 +4,10 @@ import numpy
 
 #%%
 def semantic_search_sbert(query:str, command_embeddings, title_embeddings, model:str):
-    """Get Max score between score of command and titles using 
+    """Get Max score between score of command and titles using sentence transformers 
     
-    num_array is already sorted 
+    Encode the embedding of the query and get scores between the query and commands and titles.
+    Pick the maximum score between the scores.
     """
 
     import sentence_transformers
