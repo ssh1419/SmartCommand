@@ -1,7 +1,7 @@
 # Ranking Algorithm
-The ranking algorithm using the SBERT method to match a query with the embeddings of the command phrases and the embeddings of the command titles and rank the similarity of the query and the command by 
+The ranking algorithm using the SBERT method to match a query with the embeddings of the command phrases and the embeddings of the command titles and rank the similarity of the query and the command by $max(d(e_q,e_c),d(e_q,e_t))$
 
-, when the similarity measure function as $d$ the embedding of the query as and the embedding of a command as and the embedding of the command's title as .
+, when the similarity measure function as $d$ the embedding of the query as $e_q$ and the embedding of a command as $e_c$ and the embedding of the command's title as $e_t$.
 
 ## Input:
 * The generated embeddings are saved in separate pickle files:
