@@ -1,7 +1,7 @@
 # Ranking Algorithm
-The ranking algorithm using  the embeddings of the command phrases and the embeddings of the command titles
+The ranking algorithm using the SBERT method to match a query with the embeddings of the command phrases and the embeddings of the command titles and rank the similarity of the query and the command by 
 
-, processes the data using the SBERT method, and saves the embeddings as separate pickle files. It also combines the embeddings into a single pickle file.
+, when the similarity measure function as $d$ the embedding of the query as and the embedding of a command as and the embedding of the command's title as .
 
 ## Input:
 * The generated embeddings are saved in separate pickle files:
